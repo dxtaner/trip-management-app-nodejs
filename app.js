@@ -9,12 +9,20 @@ const userRouter = require('./routes/userRoutes.js');
 // Creating an Express application
 const app = express();
 
+// MIDDLEWARES
+const { errorLogger } = require('./utils/logger');
 // 1) MIDDLEWARES
 
 // Development logging using Morgan middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+// Middleware for handling errors
+app.use((err, req, res, next) => {
+  errorLogger.error(`An error occurred: ${err.message}`);
+  res.status(500).send('Something went wrong!');
+});
 
 // Parsing incoming JSON data middleware
 app.use(express.json());
