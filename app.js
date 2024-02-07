@@ -9,8 +9,10 @@ const userRouter = require('./routes/userRoutes.js');
 // Creating an Express application
 const app = express();
 
-// MIDDLEWARES
 const { errorLogger } = require('./utils/logger');
+const AppError = require('./utils/appError.js');
+const globalErrorHandler = require('./controllers/errorController.js');
+
 // 1) MIDDLEWARES
 
 // Development logging using Morgan middleware
@@ -47,6 +49,12 @@ app.use((req, res, next) => {
 // Mounting route handlers
 app.use('/api/tours', tourRouter);
 app.use('/api/users', userRouter);
+
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalErrorHandler);
 
 // Exporting the configured Express application
 module.exports = app;
