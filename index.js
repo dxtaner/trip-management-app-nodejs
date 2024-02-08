@@ -3,7 +3,6 @@
 const dotenv = require('dotenv');
 const app = require('./app.js');
 const { combinedLogger } = require('./utils/logger');
-const mongoose = require('mongoose');
 
 // Load environment variables from config file
 const conf = dotenv.config({ path: './config.env' });
