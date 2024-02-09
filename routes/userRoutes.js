@@ -10,27 +10,27 @@ router.post('/login', authController.login);
 router.post('/forgotPassword', authController.forgotPassword);
 router.patch('/resetPassword/:token', authController.resetPassword);
 
-// Update password route (protected)
-router.patch(
-  '/updateMyPassword',
-  authController.protect,
-  authController.updatePassword
-);
+// Protect all routes after this middleware
+router.use(authController.protect);
 
-// Update and delete current user route (protected)
-router.patch('/updateMe', authController.protect, userController.updateMe);
-router.delete('/deleteMe', authController.protect, userController.deleteMe);
+router.patch('/updateMyPassword', authController.updatePassword);
+router.get('/me', userController.getMe, userController.getUser);
+router.patch('/updateMe', userController.updateMe);
+router.delete('/deleteMe', userController.deleteMe);
 
-// User routes
+// Restrict routes to admin only
+router.use(authController.restrictTo('admin'));
+
+// CRUD operations for users
 router
   .route('/')
-  .get(userController.getAllUsers) // Get all users
-  .post(userController.createUser); // Create a new user
+  .get(userController.getAllUsers)
+  .post(userController.createUser);
 
 router
   .route('/:id')
-  .get(userController.getUser) // Get user by ID
-  .patch(userController.updateUser) // Update user by ID
-  .delete(userController.deleteUser); // Delete user by ID
+  .get(userController.getUser)
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
 
 module.exports = router;
