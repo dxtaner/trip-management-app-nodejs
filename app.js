@@ -10,6 +10,7 @@ const hpp = require('hpp');
 // Importing route modules
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
+const reviewRouter = require('./routes/reviewRoutes.js');
 
 // Importing custom middleware and error handling modules
 const { errorLogger } = require('./utils/logger');
@@ -59,6 +60,9 @@ app.use(
   })
 );
 
+// Serving static files
+app.use(express.static(`${__dirname}/public`));
+
 // Middleware for handling errors
 app.use((err, req, res, next) => {
   errorLogger.error(`An error occurred: ${err.message}`);
@@ -78,10 +82,10 @@ app.use((req, res, next) => {
 });
 
 // 2) ROUTES
-
 // Mounting route handlers
 app.use('/api/tours', tourRouter);
 app.use('/api/users', userRouter);
+app.use('/api/reviews', reviewRouter);
 
 // Handling undefined routes
 app.all('*', (req, res, next) => {
