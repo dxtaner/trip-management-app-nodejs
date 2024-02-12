@@ -5,7 +5,7 @@ const reviewSchema = new mongoose.Schema(
   {
     review: {
       type: String,
-      required: [true, 'Review cannot be empty!'],
+      required: [true, 'Review can not be empty!'],
     },
     rating: {
       type: Number,
@@ -33,10 +33,10 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-// Indexing to ensure unique review for a user and a tour
+// Index for preventing duplicate reviews from the same user for the same tour
 reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
-// Populate the user field in the review
+// Populate user field in queries
 reviewSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'user',
@@ -48,7 +48,9 @@ reviewSchema.pre(/^find/, function (next) {
 // Calculate average ratings for a tour
 reviewSchema.statics.calcAverageRatings = async function (tourId) {
   const stats = await this.aggregate([
-    { $match: { tour: tourId } },
+    {
+      $match: { tour: tourId },
+    },
     {
       $group: {
         _id: '$tour',
@@ -58,8 +60,8 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
     },
   ]);
 
-  const [stat] = stats;
-  const { nRating, avgRating } = stat || { nRating: 0, avgRating: 4.5 };
+  const nRating = stats.length > 0 ? stats[0].nRating : 0;
+  const avgRating = stats.length > 0 ? stats[0].avgRating : 4.5;
 
   await Tour.findByIdAndUpdate(tourId, {
     ratingsQuantity: nRating,
@@ -67,21 +69,18 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
   });
 };
 
-// Calculate average ratings after saving a review
+// Calculate average ratings after saving a new review
 reviewSchema.post('save', function () {
   this.constructor.calcAverageRatings(this.tour);
 });
 
-// Pre hook for findOneAndUpdate and findOneAndDelete operations
+// Calculate average ratings after updating or deleting a review
 reviewSchema.pre(/^findOneAnd/, async function (next) {
-  // Save the document before it's updated or deleted
   this.r = await this.findOne();
   next();
 });
 
-// Post hook for findOneAndUpdate and findOneAndDelete operations
 reviewSchema.post(/^findOneAnd/, async function () {
-  // Access the document from the pre hook and calculate average ratings
   await this.r.constructor.calcAverageRatings(this.r.tour);
 });
 
