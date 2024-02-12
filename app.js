@@ -1,4 +1,5 @@
 // Importing required modules
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
@@ -6,11 +7,13 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
 
 // Importing route modules
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes.js');
+const viewRouter = require('./routes/viewRoutes.js');
 
 // Importing custom middleware and error handling modules
 const { errorLogger } = require('./utils/logger');
@@ -20,7 +23,14 @@ const globalErrorHandler = require('./controllers/errorController');
 // Creating an Express application
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
 // 1) GLOBAL MIDDLEWARES
+
+// Serving static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Set security HTTP headers
 app.use(helmet());
 
@@ -39,6 +49,8 @@ app.use('/api', limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(cookieParser());
 
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
@@ -59,9 +71,6 @@ app.use(
     ],
   })
 );
-
-// Serving static files
-app.use(express.static(`${__dirname}/public`));
 
 // Middleware for handling errors
 app.use((err, req, res, next) => {
@@ -86,6 +95,7 @@ app.use((req, res, next) => {
 app.use('/api/tours', tourRouter);
 app.use('/api/users', userRouter);
 app.use('/api/reviews', reviewRouter);
+app.use('/', viewRouter);
 
 // Handling undefined routes
 app.all('*', (req, res, next) => {
