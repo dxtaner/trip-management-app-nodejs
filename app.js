@@ -14,6 +14,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes.js');
 const viewRouter = require('./routes/viewRoutes.js');
+const bookingRouter = require('./routes/bookingRoutes.js');
 
 // Importing custom middleware and error handling modules
 const { errorLogger } = require('./utils/logger');
@@ -69,7 +70,7 @@ app.use(
       'difficulty',
       'price',
     ],
-  })
+  }),
 );
 
 // Middleware for handling errors
@@ -95,6 +96,7 @@ app.use((req, res, next) => {
 app.use('/api/tours', tourRouter);
 app.use('/api/users', userRouter);
 app.use('/api/reviews', reviewRouter);
+app.use('/api/bookings', bookingRouter);
 app.use('/', viewRouter);
 
 // Handling undefined routes
