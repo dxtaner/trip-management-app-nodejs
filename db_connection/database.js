@@ -16,7 +16,7 @@ mongoose
   .catch((err) => {
     errorLogger.error(
       'An error occurred while connecting to the database:',
-      err.message
+      err.message,
     );
     process.exit(1);
   });
