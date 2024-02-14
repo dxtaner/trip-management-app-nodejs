@@ -10,9 +10,12 @@ exports.deleteOne = (Model) =>
       return next(new AppError('No document found with that ID', 404));
     }
 
-    res.status(204).json({
+    res.status(200).json({
       status: 'success',
-      data: null,
+      data: {
+        id: doc._id,
+        message: 'Deleted successfully',
+      },
     });
   });
 
