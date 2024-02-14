@@ -1,15 +1,21 @@
-footer.footer
+footer.footer(style="background-color: #1a1a1a; color: #fff; padding: 40px 0;")
   .footer__logo
-    img(src='/img/logo-green.png', alt='Natour logo')
+    img(src='/img/logo-green.png', alt='Natour logo', style="width: 170px;  margin-left: 12px;")
 
-  ul.footer__nav
-    li: a(href='#') About us
-    li: a(href='#') Become a guide
-    li: a(href='#') Contact
-    li: a.footer__social-link(href='https://github.com/dxtaner', target='_blank')
-      | GitHub
-    li: a.footer__social-link(href='https://www.linkedin.com/in/tanerozer16/', target='_blank')
-      | LinkedIn
+  ul.footer__nav(style="list-style: none; padding: 0; margin: 20px 0; text-align: center; font-weight:700; ")
+    li(style="display: inline-block; margin-right: 20px;")
+      a(href='/about', style="color: #fff; text-decoration: none; font-size: 1.2em; transition: color 0.3s; &:hover { color: #4CAF50; }") About us
+    li(style="display: inline-block; margin-right: 20px;")
+      a(href='/become-a-guide', style="color: #fff; text-decoration: none; font-size: 1.2em; transition: color 0.3s; &:hover { color: #4CAF50; }") Become a guide
+    li(style="display: inline-block; margin-right: 20px;")
+      a.footer__social-link(href='https://github.com/dxtaner', target='_blank', style="color: #fff; text-decoration: none; font-size: 1.2em; transition: color 0.3s; &:hover { color: #4CAF50; }")
+        | GitHub
+    li(style="display: inline-block; margin-right: 20px;")
+      a.footer__social-link(href='https://www.linkedin.com/in/tanerozer16/', target='_blank', style="color: #fff; text-decoration: none; font-size: 1.2em; transition: color 0.3s; &:hover { color: #4CAF50; }")
+        | LinkedIn
+    li(style="display: inline-block; margin-right: 20px;")
+      a.footer__social-link(href='https://www.medium.com/@dxtaner/', target='_blank', style="color: #fff; text-decoration: none; font-size: 1.2em; transition: color 0.3s; &:hover { color: #4CAF50; }")
+        | Medium  
 
-  p.footer__copyright 
-    | &copy; by dxtaner 2024. 
+  p.footer__copyright(style="text-align: center; margin-top: 20px; font-size: 1.2em;")
+    | &copy; <<< by dxtaner 2024 >>>
