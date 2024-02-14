@@ -1,30 +1,84 @@
 const nodemailer = require('nodemailer');
+const pug = require('pug');
+const { convert } = require('html-to-text');
+const dotenv = require('dotenv');
 
-const sendEmail = async (options) => {
-  // 1) Create a transporter
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    // Uncomment the lines below and provide necessary environment variables for custom email server configuration
-    // host: process.env.EMAIL_HOST,
-    // port: process.env.EMAIL_PORT,
-  });
+class Email {
+  constructor(user, url) {
+    dotenv.config({ path: './config.env' });
 
-  // 2) Define the email options
-  const mailOptions = {
-    from: `Taner Özer <${process.env.EMAIL_FROM}>`,
-    to: options.email,
-    subject: options.subject,
-    text: options.message,
-    // Uncomment the line below and provide an HTML content for HTML emails
-    // html: options.html,
-  };
+    this.to = user.email;
+    this.firstName = user.name.split(' ')[0];
+    this.url = url;
+    this.from = process.env.EMAIL_FROM;
+  }
 
-  // 3) Actually send the email
-  await transporter.sendMail(mailOptions);
-};
+  newTransport() {
+    let transporterOptions;
+    if (process.env.NODE_ENV === 'production') {
+      transporterOptions = {
+        service: 'SendGrid',
+        auth: {
+          user: process.env.SENDGRID_USERNAME,
+          pass: process.env.SENDGRID_PASSWORD,
+        },
+      };
+    } else {
+      transporterOptions = {
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USERNAME,
+          pass: process.env.EMAIL_PASSWORD,
+        },
+      };
+    }
+    console.error('transporterOptions:', transporterOptions);
+    return nodemailer.createTransport(transporterOptions);
+  }
 
-module.exports = sendEmail;
+  async send(template, subject) {
+    try {
+      const emailTemplatePath = `${__dirname}/../views/email/${template}.pug`;
+      const html = pug.renderFile(emailTemplatePath, {
+        firstName: this.firstName,
+        url: this.url,
+        subject,
+      });
+
+      const mailOptions = {
+        from: this.from,
+        to: this.to,
+        subject,
+        html,
+        text: convert(html),
+      };
+
+      const transporter = this.newTransport();
+      const info = await transporter.sendMail(mailOptions);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async sendWelcome() {
+    try {
+      await this.send('welcome', 'Welcome to the Natours Family!');
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async sendPasswordReset() {
+    try {
+      await this.send(
+        'passwordReset',
+        'Your password reset token (valid for only 10 minutes)',
+      );
+    } catch (error) {
+      console.error('Error sending password reset email:', error);
+      throw error;
+    }
+  }
+}
+
+module.exports = Email;
