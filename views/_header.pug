@@ -1,16 +1,20 @@
-header.header
-  nav.nav.nav--tours
-    a.nav__el(href='/') All Tours Management
+header.header(style="background-color: #333; height: 190px; color: #fff; padding: 10px; display: flex; justify-content: space-between; border-radius: 8px; align-items: center;")
 
-  .header__logo
-    img(src='/img/logo-white.png', alt='Tours logo')
+  nav.nav.nav--tours(style="display: flex; align-items: center; flex-grow: 1;")
 
-  nav.nav.nav--user
+    a.nav__el(href='/' style="text-decoration: none; color: #fff; font-weight:900; font-size: 1.4em;  margin: 15px;") Tours
+
+  .header__logo(style="flex-grow: 1; display: flex; justify-content: center;")
+
+    img(src='/img/logo-white.png', alt='Tours logo', style="max-height: 80px; width: auto;")
+
+  nav.nav.nav--user(style="display: flex; align-items: center; flex-grow: 1; justify-content: flex-end;")
+
     if user
-      a.nav__el.nav__el--logout(href='#') Log Out
-      a.nav__el(href='/me')
-        img.nav__user-img(src=`/img/users/${user.photo}`, alt=`Photo of ${user.name}`)
-        span= user.name.split(' ')[0]
+      a.nav__el.nav__el--logout(href='#' style="text-decoration: none; color: #fff; font-size: 1.4em; margin-right: 10px;") Log Out
+      a.nav__el(href='/me' style="text-decoration: none; color: #fff; font-weight:800;   margin-right: 10px; position: relative; display: flex; align-items: center;")
+        img.nav__user-img(src=`/img/users/${user.photo}`, alt=`Photo of ${user.name}`, style="width: 25px; height: 25px; border-radius: 50%; margin-right: 5px;")
+        span(style="font-size: 0.8em;")= user.name.split(' ')[0]
     else
-      a.nav__el(href='/login') Log In
-      a.nav__el.nav__el--cta(href='/signup') Sign Up
+      a.nav__el(href='/login' style="text-decoration: none; color: #fff; font-weight:800;  font-size: 1.4em; margin-right: 10px;") Log In
+      a.nav__el.nav__el--cta(href='/signup' style="text-decoration: none; color: green;font-weight:800;  font-size: 1.5em; border: 1px solid #fff; padding: 6px 12px; border-radius: 15px;") Sign Up
