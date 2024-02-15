@@ -1,12 +1,12 @@
-const Tour = require('../models/tourModel');
-const User = require('../models/userModel');
-const Booking = require('../models/bookingModel');
-const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
+const Tour = require("../models/tourModel");
+const User = require("../models/userModel");
+const Booking = require("../models/bookingModel");
+const catchAsync = require("../utils/catchAsync");
+const AppError = require("../utils/appError");
 
 exports.alerts = (req, res, next) => {
   const { alert } = req.query;
-  if (alert === 'booking')
+  if (alert === "booking")
     res.locals.alert =
       "Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediatly, please come back later.";
   next();
@@ -14,55 +14,55 @@ exports.alerts = (req, res, next) => {
 
 exports.getOverview = catchAsync(async (req, res, next) => {
   const tours = await Tour.find();
-  res.status(200).render('overview', {
-    title: 'All Tours',
+  res.status(200).render("overview", {
+    title: "All Tour Management",
     tours,
   });
 });
 
 exports.getTour = catchAsync(async (req, res, next) => {
   const tour = await Tour.findOne({ slug: req.params.slug }).populate({
-    path: 'reviews',
-    select: 'review rating user',
+    path: "reviews",
+    select: "review rating user",
   });
 
   if (!tour) {
-    return next(new AppError('There is no tour with that name.', 404));
+    return next(new AppError("There is no tour with that name.", 404));
   }
 
-  res.status(200).render('tour', {
+  res.status(200).render("tour", {
     title: `${tour.name} Tour`,
     tour,
   });
 });
 
 exports.getSingupForm = (req, res) => {
-  res.status(200).render('signup', {
-    title: 'Create your account!',
+  res.status(200).render("signup", {
+    title: "Create Your Account",
   });
 };
 
 exports.getAboutPage = (req, res) => {
-  res.status(200).render('about', {
-    title: 'about!',
+  res.status(200).render("about", {
+    title: "About Page",
   });
 };
 
 exports.getGuidePage = (req, res) => {
-  res.status(200).render('become-a-guide', {
-    title: 'become-a-guide!',
+  res.status(200).render("become-a-guide", {
+    title: "Become-A-Guide",
   });
 };
 
 exports.getLoginForm = (req, res) => {
-  res.status(200).render('login', {
-    title: 'Log into your account',
+  res.status(200).render("login", {
+    title: "Log Into Your Account",
   });
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render('account', {
-    title: 'Your account',
+  res.status(200).render("account", {
+    title: "Your Account",
   });
 };
 
@@ -73,8 +73,8 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
 
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
-  res.status(200).render('overview', {
-    title: 'My Tours',
+  res.status(200).render("overview", {
+    title: "My Tours",
     tours,
   });
 });
@@ -92,8 +92,8 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     },
   );
 
-  res.status(200).render('account', {
-    title: 'Your account',
+  res.status(200).render("account", {
+    title: "Your Account",
     user: updatedUser,
   });
 });

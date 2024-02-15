@@ -30,10 +30,9 @@ const reviewSchema = new mongoose.Schema(
   {
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
-  }
+  },
 );
 
-// Index for preventing duplicate reviews from the same user for the same tour
 reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
 
 // Populate user field in queries
@@ -69,19 +68,14 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
   });
 };
 
-// Calculate average ratings after saving a new review
-reviewSchema.post('save', function () {
+reviewSchema.pre('save', async function (next) {
   this.constructor.calcAverageRatings(this.tour);
-});
-
-// Calculate average ratings after updating or deleting a review
-reviewSchema.pre(/^findOneAnd/, async function (next) {
-  this.r = await this.findOne();
   next();
 });
 
-reviewSchema.post(/^findOneAnd/, async function () {
-  await this.r.constructor.calcAverageRatings(this.r.tour);
+reviewSchema.pre(/^findOneAnd/, async function (next) {
+  this.r = await this.findOne().clone();
+  next();
 });
 
 const Review = mongoose.model('Review', reviewSchema);
