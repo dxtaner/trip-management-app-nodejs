@@ -23,7 +23,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
 exports.getTour = catchAsync(async (req, res, next) => {
   const tour = await Tour.findOne({ slug: req.params.slug }).populate({
     path: "reviews",
-    select: "review rating user",
+    fields: "review rating user",
   });
 
   if (!tour) {
@@ -42,18 +42,6 @@ exports.getSingupForm = (req, res) => {
   });
 };
 
-exports.getAboutPage = (req, res) => {
-  res.status(200).render("about", {
-    title: "About Page",
-  });
-};
-
-exports.getGuidePage = (req, res) => {
-  res.status(200).render("become-a-guide", {
-    title: "Become-A-Guide",
-  });
-};
-
 exports.getLoginForm = (req, res) => {
   res.status(200).render("login", {
     title: "Log Into Your Account",
@@ -66,17 +54,30 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.forgotPassword = (req, res) => {
+  res.status(200).render("forgotpassword", {
+    title: "Forgot Password",
+  });
+};
+
 exports.getMyTours = catchAsync(async (req, res, next) => {
   const bookings = await Booking.find({ user: req.user.id });
 
   const tourIDs = bookings.map((booking) => booking.tour);
-
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
-  res.status(200).render("overview", {
-    title: "My Tours",
-    tours,
-  });
+  if (bookings.length === 0) {
+    res.status(200).render("nullbooking", {
+      title: "Book Tours",
+      headLine: `You haven't booked any tours yet!`,
+      msg: `Please book a tour and come back. 🙂`,
+    });
+  } else {
+    res.status(200).render("overview", {
+      title: "My Tours",
+      tours,
+    });
+  }
 });
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
@@ -97,3 +98,22 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     user: updatedUser,
   });
 });
+
+exports.getAboutPage = (req, res) => {
+  res.status(200).render("about", {
+    title: "About Page",
+  });
+};
+
+exports.getGuidePage = (req, res) => {
+  res.status(200).render("become-a-guide", {
+    title: "Become-A-Guide",
+  });
+};
+
+exports.resetPassword = (req, res) => {
+  res.status(200).render("resetpassword", {
+    title: "Reset Password",
+    resetToken: req.params.resetToken,
+  });
+};
