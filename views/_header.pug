@@ -13,7 +13,7 @@ header.header(style="background-color: #333; height: 190px; color: #fff; padding
     if user
       a.nav__el.nav__el--logout(href='#' style="text-decoration: none; color: #fff; font-size: 1.4em; margin-right: 10px;") Log Out
       a.nav__el(href='/me' style="text-decoration: none; color: #fff; font-weight:800;   margin-right: 10px; position: relative; display: flex; align-items: center;")
-        img.nav__user-img(src=`/img/users/${user.photo}`, alt=`Photo of ${user.name}`, style="width: 25px; height: 25px; border-radius: 50%; margin-right: 5px;")
+        img.nav__user-img(src=`/img/users/${user.photo}`, alt=`Photo of ${user.name}`, style="width: 40px; height: 35px; border-radius: 50%; margin-right: 5px;")
         span(style="font-size: 0.8em;")= user.name.split(' ')[0]
     else
       a.nav__el(href='/login' style="text-decoration: none; color: #fff; font-weight:800;  font-size: 1.4em; margin-right: 10px;") Log In
