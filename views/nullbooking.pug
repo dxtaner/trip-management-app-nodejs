@@ -1,0 +1,9 @@
+extends base
+
+block content
+  main.main(style="background-color: #f9f9f9; display: flex; margin:30px; justify-content: center; align-items: center; height: 100vh;")
+
+    .error(style="text-align: center;")
+      .error__title(style="margin-bottom: 20px; font-size: 2.5em; color: #333;") #{headLine}
+      .error__emoji(style="font-size: 3em;") 🙁🙁🙁
+      .error__msg(style="font-size: 1.2em; color: #666;") #{msg}
