@@ -8,7 +8,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const compression = require("compression");
 const cors = require("cors");
 
@@ -25,8 +25,12 @@ const { errorLogger } = require("./utils/logger");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 
+const { application } = require("express");
+
 // Creating an Express application
 const app = express();
+
+app.enable("trust express");
 
 app.enable("trust proxy");
 app.set("trust proxy", "loopback");
@@ -41,10 +45,31 @@ app.options("*", cors());
 // app.options("/api/tours/:id", cors());
 
 // Serving static files
-app.use(express.static(path.join(__dirname, "public")));
+// Express uygulaması oluşturulurken statik dosya sunma özelliği tanımlanır
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    etag: false,
+    index: false,
+    setHeaders: function (res, path, stat) {
+      if (path === "/bundle.js.map") {
+        res.status(404).end();
+      }
+    },
+  }),
+);
 
 // Set security HTTP headers
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", "https:", "http:", "data:", "ws:"],
+      baseUri: ["'self'"],
+      fontSrc: ["'self'", "https:", "http:", "data:"],
+      scriptSrc: ["'self'", "https:", "http:", "blob:"],
+      styleSrc: ["'self'", "https:", "http:", "'unsafe-inline'"],
+    },
+  }),
+);
 
 // Development logging using Morgan middleware
 if (process.env.NODE_ENV === "development") {
@@ -59,10 +84,11 @@ const limiter = rateLimit({
 });
 app.use("/api", limiter);
 
+const bodyParser = require("body-parser");
 // Stripe webhook, BEFORE body-parser, because stripe needs the body as stream
 app.post(
   "/webhook-checkout",
-  bodyParser.raw({ type: "application/json" }),
+  bodyParser.raw({ type: "application / json" }),
   bookingController.webhookCheckout,
 );
 
@@ -100,10 +126,10 @@ app.use((err, req, res, next) => {
 });
 
 // Custom middleware logging a message to the console
-app.use((req, res, next) => {
-  console.log("Hello from the middleware 👋");
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log("Hello from the middleware 👋");
+//   next();
+// });
 
 // Custom middleware adding a request timestamp
 app.use((req, res, next) => {
