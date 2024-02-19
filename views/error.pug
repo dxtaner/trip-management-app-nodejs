@@ -1,10 +1,9 @@
 extends base
 
 block content
-  main.main(style="background-color: #f9f9f9; display: flex; justify-content: center; align-items: center; height: 100vh;")
-
-    .error(style="text-align: center;")
-      .error__title(style="margin-bottom: 20px;")
-        h2.heading-secondary.heading-secondary--error(style="font-size: 2.5em; color: #333;") ooh!!! Something went wrong! ooh!!!
-        h2.error__emoji(style="font-size: 5em;") 😢 🤯
-      .error__msg(style="font-size: 1.8em; color: #666;") #{msg}
+  main.main
+    .error
+      .error__title
+        h2.heading-secondary.heading-secondary--error ooh!!! Something went wrong! ooh!!!
+        h2.error__emoji 😢 🤯 😢 🤯
+      .error__msg= msg
