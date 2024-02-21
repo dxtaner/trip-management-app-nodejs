@@ -21,12 +21,15 @@ Getting Started
 3.  **Set up environment variables:**
     
     Create a `.env` file in the root directory and provide the necessary environment variables. You can use the `config.env` file as a template.
+
+    ![image](https://github.com/dxtaner/trip-management-app-nodejs/assets/44675799/220e2a50-ca59-4e7b-86b4-f4c2352480aa)
+
     
-4.  **Database setup:**
+5.  **Database setup:**
     
     Ensure that you have set up your database configuration correctly. This project uses MongoDB, and the connection details can be configured in `db_connection/database.js`.
     
-5.  **Run the application:**
+6.  **Run the application:**
     
         npm start
     
@@ -41,6 +44,7 @@ Project Structure
 -----------------
 
 ![image](https://github.com/dxtaner/trip-management-app-nodejs/assets/44675799/216f46ca-ab55-4d18-8c52-d54ba5b3c388)
+
 
 Dependencies
 ------------
