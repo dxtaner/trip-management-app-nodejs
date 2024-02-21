@@ -42,29 +42,6 @@ Project Structure
 
 ![image](https://github.com/dxtaner/trip-management-app-nodejs/assets/44675799/216f46ca-ab55-4d18-8c52-d54ba5b3c388)
 
-project-root/
-│
-├── config.env            # Environment configuration file
-├── db\_connection/        # Database connection setup
-│   └── database.js
-│
-├── public/               # Static files
-│   └── ...               
-│
-├── routes/               # Route handlers
-│   └── ...               
-│
-├── utils/                # Utility modules
-│   ├── logger.js         # Logging utilities
-│   └── ...
-│
-├── views/                # Pug view templates
-│   └── ...
-│
-├── app.js                # Express application setup
-└── index.js              # Application entry point
-    
-
 Dependencies
 ------------
 
