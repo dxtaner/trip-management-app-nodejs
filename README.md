@@ -15,8 +15,50 @@ Getting Started
     
 2.  **Install dependencies:**
     
-        cd <project_directory>
+Installation
+------------
+
+1.  **Clone the Project:** Clone the project repository or download it as a zip file.
+    
+        git clone <repository_url>
+    
+2.  **Install Dependencies:** Navigate to the project root directory and install the dependencies using the following command.
+    
         npm install
+    
+3.  **Run the Application:** To run the application in development mode:
+    
+        npm start
+    
+    To run the application in production mode:
+    
+        npm run start:prod
+    
+
+Development
+-----------
+
+*   **Watch JavaScript Files:** To watch JavaScript files for changes:
+    
+        npm run watch:js
+    
+*   **Build JavaScript Files:** To build JavaScript files:
+    
+        npm run build:js
+    
+
+Debugging
+---------
+
+*   **Run in Debug Mode:** To run the application in debug mode:
+    
+        npm run debug
+    
+
+Additional Notes
+----------------
+
+This project requires at least Node.js version 10.0.0. Please ensure you have an appropriate version of Node.js installed.
     
 3.  **Set up environment variables:**
     
