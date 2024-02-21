@@ -1,0 +1,79 @@
+2024-02-07T10:59:27.925Z [error]: An error occurred while connecting to the database:
+2024-02-07T11:03:17.018Z [error]: An error occurred while connecting to the database:
+2024-02-07T11:47:11.494Z [error]: An error occurred while connecting to the database:
+2024-02-07T11:57:39.666Z [error]: An error occurred while connecting to the database:
+2024-02-08T10:55:33.719Z [error]: An error occurred while connecting to the database:
+2024-02-08T10:57:06.433Z [error]: An error occurred while connecting to the database:
+2024-02-08T12:19:43.525Z [error]: An error occurred while connecting to the database:
+2024-02-08T12:20:27.556Z [error]: An error occurred while connecting to the database:
+2024-02-08T12:53:20.269Z [error]: An error occurred: Unexpected token } in JSON at position 112
+2024-02-08T13:38:33.255Z [error]: An error occurred while connecting to the database:
+2024-02-08T20:29:08.635Z [error]: An error occurred: Unexpected end of JSON input
+2024-02-08T20:29:11.361Z [error]: An error occurred: Unexpected end of JSON input
+2024-02-08T21:10:08.950Z [error]: An error occurred while connecting to the database:
+2024-02-08T21:10:42.795Z [error]: An error occurred while connecting to the database:
+2024-02-08T22:00:46.818Z [error]: An error occurred: Unexpected token } in JSON at position 66
+2024-02-09T11:22:48.916Z [error]: An error occurred while connecting to the database:
+2024-02-09T11:42:23.771Z [error]: An error occurred while connecting to the database:
+2024-02-09T13:17:33.809Z [error]: An error occurred while connecting to the database:
+2024-02-09T19:53:57.007Z [error]: An error occurred while connecting to the database:
+2024-02-09T20:36:37.529Z [error]: An error occurred while connecting to the database:
+2024-02-09T20:46:11.898Z [error]: An error occurred while connecting to the database:
+2024-02-09T20:49:30.962Z [error]: An error occurred while connecting to the database:
+2024-02-09T21:11:26.570Z [error]: An error occurred while connecting to the database:
+2024-02-09T21:12:30.827Z [error]: An error occurred while connecting to the database:
+2024-02-09T21:13:07.572Z [error]: An error occurred while connecting to the database:
+2024-02-11T22:38:31.819Z [error]: An error occurred while connecting to the database:
+2024-02-12T10:57:33.951Z [error]: An error occurred while connecting to the database:
+2024-02-12T12:50:59.590Z [error]: An error occurred while connecting to the database:
+2024-02-12T12:58:49.286Z [error]: An error occurred while connecting to the database:
+2024-02-12T12:59:57.007Z [error]: An error occurred while connecting to the database:
+2024-02-12T15:46:57.264Z [error]: An error occurred while connecting to the database:
+2024-02-12T15:47:49.884Z [error]: An error occurred while connecting to the database:
+2024-02-13T11:31:58.609Z [error]: An error occurred while connecting to the database:
+2024-02-13T11:53:36.003Z [error]: An error occurred while connecting to the database:
+2024-02-13T11:55:48.872Z [error]: An error occurred while connecting to the database:
+2024-02-13T11:56:57.544Z [error]: An error occurred while connecting to the database:
+2024-02-13T20:26:57.350Z [error]: An error occurred while connecting to the database:
+2024-02-13T20:31:04.065Z [error]: An error occurred while connecting to the database:
+2024-02-13T20:34:33.729Z [error]: An error occurred while connecting to the database:
+2024-02-13T20:36:52.270Z [error]: An error occurred while connecting to the database:
+2024-02-14T12:44:11.359Z [error]: An error occurred: Expected double-quoted property name in JSON at position 367
+2024-02-14T12:44:53.482Z [error]: An error occurred: Expected double-quoted property name in JSON at position 179
+2024-02-14T13:35:18.090Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:35:20.268Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:35:24.478Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:35:31.165Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:36:06.329Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:36:11.249Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:36:12.710Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T13:37:04.919Z [error]: An error occurred: Expected double-quoted property name in JSON at position 19
+2024-02-14T18:44:20.140Z [error]: An error occurred while connecting to the database:
+2024-02-15T12:16:34.337Z [error]: An error occurred while connecting to the database:
+2024-02-15T12:17:52.899Z [error]: An error occurred while connecting to the database:
+2024-02-15T14:21:26.751Z [error]: An error occurred while connecting to the database:
+2024-02-15T21:01:47.557Z [error]: An error occurred while connecting to the database:
+2024-02-16T20:13:25.210Z [error]: An error occurred while connecting to the database:
+2024-02-16T20:14:13.544Z [error]: An error occurred while connecting to the database:
+2024-02-17T12:16:44.260Z [error]: An error occurred while connecting to the database:
+2024-02-17T12:18:21.363Z [error]: An error occurred while connecting to the database:
+2024-02-17T13:08:30.313Z [error]: An error occurred while connecting to the database:
+2024-02-17T13:09:11.133Z [error]: An error occurred while connecting to the database:
+2024-02-17T14:10:35.315Z [error]: An error occurred while connecting to the database:
+2024-02-17T17:01:45.556Z [error]: An error occurred while connecting to the database:
+2024-02-18T11:45:20.610Z [error]: An error occurred while connecting to the database:
+2024-02-18T13:03:35.399Z [error]: An error occurred while connecting to the database:
+2024-02-18T14:06:15.889Z [error]: An error occurred: Expected double-quoted property name in JSON at position 83
+2024-02-18T21:06:41.644Z [error]: An error occurred while connecting to the database:
+2024-02-18T21:55:06.905Z [error]: An error occurred: signature is not defined
+2024-02-18T21:55:08.706Z [error]: An error occurred: signature is not defined
+2024-02-18T21:55:09.689Z [error]: An error occurred: signature is not defined
+2024-02-18T21:56:21.106Z [error]: An error occurred: signature is not defined
+2024-02-18T21:56:21.594Z [error]: An error occurred: signature is not defined
+2024-02-18T21:56:22.527Z [error]: An error occurred: signature is not defined
+2024-02-18T21:56:33.268Z [error]: An error occurred: signature is not defined
+2024-02-18T21:56:59.702Z [error]: An error occurred: signature is not defined
+2024-02-18T21:57:00.261Z [error]: An error occurred: signature is not defined
+2024-02-18T21:57:06.707Z [error]: An error occurred: signature is not defined
+2024-02-18T21:57:11.938Z [error]: An error occurred: signature is not defined
+2024-02-18T21:57:12.412Z [error]: An error occurred: signature is not defined
