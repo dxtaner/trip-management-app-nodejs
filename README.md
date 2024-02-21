@@ -6,6 +6,38 @@ Project Overview
 
 This project is an Express.js application designed to serve as a backend for a tour booking service. It handles various functionalities such as user authentication, tour management, booking processing, and more.
 
+## Key Features 📝
+
+### Authentication and Authorization
+- **Sign up, Log in, Logout:** Users can create an account, log in, and log out securely.
+- **Update and Reset Password:** Users can update their password and reset it if forgotten.
+- **User Profile:** Users can manage their profile, including username, photo, email, and other information.
+- **User Roles:** Users can have different roles such as regular user, admin, lead guide, or guide.
+
+### Tour Management
+- **Create, Update, and Delete Tours:** Admin users or lead guides can create, update, and delete tours.
+- **Tour Visibility:** Tours are visible to all users.
+- **Tour Details:** Users can check tour maps, reviews, and ratings.
+
+### Booking Management
+- **Book Tours:** Regular users can book tours and make payments via Credit Card.
+- **Credit Card Payment:** Secure payment processing for tour bookings.
+- **Booking Restrictions:** Regular users cannot book the same tour twice.
+- **View Bookings:** Regular users can see all the tours they have booked.
+- **Admin Access:** Admin users or lead guides can view and manage all bookings.
+- **Create and Edit Bookings:** Admin users or lead guides can manually create bookings, edit, or delete them.
+- **Booking Restrictions:** Admin users or lead guides cannot create a booking for the same user twice.
+
+### Review System
+- **Write Reviews:** Regular users can write reviews for tours they have booked.
+- **Review Visibility:** All users can see reviews for each tour.
+- **Review Management:** Regular users can edit and delete their own reviews.
+- **Review Restrictions:** Regular users cannot review the same tour twice.
+- **Admin Access:** Admin users can delete any review.
+
+These features provide comprehensive functionality for managing tours, bookings, and user interactions while ensuring security and user privacy.
+
+
 Getting Started
 ---------------
 
