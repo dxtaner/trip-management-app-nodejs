@@ -182,6 +182,18 @@ Debugging
 Additional Notes
 ----------------
 
+#### Payment Process
+
+1. Add the tour to your cart and proceed to checkout.
+2. Enter your card details (Test Mode):
+  ```
+  - Card No. : 4242 4242 4242 4242
+  - Expiry date: 02 / 22
+  - CVV: 222
+  ```
+3. Payment process completed successfully.
+
+
 This project requires at least Node.js version 10.0.0. Please ensure you have an appropriate version of Node.js installed.
     
 3.  **Set up environment variables:**
