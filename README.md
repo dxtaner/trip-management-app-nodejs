@@ -188,7 +188,7 @@ Additional Notes
 2. Enter your card details (Test Mode):
   ```
   - Card No. : 4242 4242 4242 4242
-  - Expiry date: 02 / 22
+  - Expiry date: 02 / 25
   - CVV: 222
   ```
 3. Payment process completed successfully.
