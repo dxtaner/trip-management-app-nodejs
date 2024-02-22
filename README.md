@@ -1,4 +1,4 @@
-![image](https://github.com/dxtaner/trip-management-app-nodejs/assets/44675799/80b94bd9-9e82-4f27-b475-78f895c1b445)Tour Management
+Tour Management
 ==============
 
 Project Overview
