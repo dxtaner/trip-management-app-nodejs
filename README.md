@@ -37,6 +37,52 @@ This project is an Express.js application designed to serve as a backend for a t
 
 These features provide comprehensive functionality for managing tours, bookings, and user interactions while ensuring security and user privacy.
 
+## Screenshots
+
+- [About](/ScreenShoots/about.png)
+- [About Guide Logout](/ScreenShoots/aboutguidelogout.gif)
+- [About Tour Page](/ScreenShoots/aboutotourpage.png)
+- [Admin Account Page](/ScreenShoots/adminacountpage.png)
+- [All Tour](/ScreenShoots/alltour.gif)
+- [All Tour 2](/ScreenShoots/alltour2.gif)
+- [An Error Test](/ScreenShoots/anerrortest.png)
+- [Become a Guide](/ScreenShoots/becomeaguide.png)
+- [Booking Tour](/ScreenShoots/bookingtour.gif)
+- [Checking Tour](/ScreenShoots/checkingTour.gif)
+- [Error Page](/ScreenShoots/errorpage.png)
+- [Footer](/ScreenShoots/footer.png)
+- [Forgot Password](/ScreenShoots/forgotpassword.png)
+- [Forgot Password Email](/ScreenShoots/forgotpasswordemail.png)
+- [Forgot Password Mail 2](/ScreenShoots/forgotpasswordmail2.png)
+- [Guides Photo](/ScreenShoots/guidesphoto.png)
+- [Header](/ScreenShoots/header.png)
+- [Header 2](/ScreenShoots/header2.png)
+- [Login Logout Forgot Singup](/ScreenShoots/loginlogoutforgotsingup.gif)
+- [Login Page](/ScreenShoots/loginpage.png)
+- [Mapbox](/ScreenShoots/mapbox.png)
+- [Mapbox 2](/ScreenShoots/mapbox2.png)
+- [My Account](/ScreenShoots/myaccount.gif)
+- [My Account](/ScreenShoots/myaccount.png)
+- [My Account 2](/ScreenShoots/myaccount2.png)
+- [My Booking Page](/ScreenShoots/mybookingpage.png)
+- [My Bookings](/ScreenShoots/mybookings.gif)
+- [My Tours](/ScreenShoots/mytours.png)
+- [Rating Users](/ScreenShoots/ratingusers.png)
+- [Responsive](/ScreenShoots/responsive.gif)
+- [Reviews](/ScreenShoots/reviews.png)
+- [Singup Page](/ScreenShoots/singuppage.png)
+- [Tour One](/ScreenShoots/tourOne.gif)
+- [Tour One](/ScreenShoots/tourOne.png)
+- [Tour Three](/ScreenShoots/tourThree.png)
+- [Tour Two](/ScreenShoots/tourTwo.png)
+- [Tour Facts Guides](/ScreenShoots/tourfactsguides.png)
+- [Tour Four](/ScreenShoots/tourfour.png)
+- [Tour Page Footer](/ScreenShoots/tourpagefooter.png)
+- [Tours Page](/ScreenShoots/tourspage.png)
+- [Tours Page 2](/ScreenShoots/tourspage2.png)
+- [Waiting For](/ScreenShoots/waitingfor.png)
+- [Welcome Mail](/ScreenShoots/welcomemail.png)
+
 
 Getting Started
 ---------------
