@@ -59,7 +59,7 @@ These features provide comprehensive functionality for managing tours, bookings,
 ![Tour One](/ScreenShoots/tourOne.gif)
 
 ### Other Screenshots
-For more screenshots, please refer to the readme2.md file.
+For more screenshots, please refer to the [readme2.md](https://github.com/dxtaner/trip-management-app-nodejs/blob/main/readme2.md) file.
 
 Getting Started
 ---------------
